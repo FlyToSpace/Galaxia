@@ -7,6 +7,7 @@ import java.util.Map;
 
 import net.minecraftforge.common.DimensionManager;
 
+import com.gtnewhorizons.galaxia.dimension.asteroidbelts.FrozenBelt;
 import com.gtnewhorizons.galaxia.dimension.planets.BasePlanet;
 import com.gtnewhorizons.galaxia.dimension.planets.Calx;
 import com.gtnewhorizons.galaxia.dimension.planets.Dunia;
@@ -25,14 +26,15 @@ public final class SolarSystemRegistry {
         if (registered) return;
         registered = true;
 
-        registerPlanet(new Calx());
-        registerPlanet(new Dunia());
+        registerDimensions(new Calx());
+        registerDimensions(new Dunia());
+        registerDimensions(new FrozenBelt());
 
         FMLLog.info("[Galaxia] Registered %d celestial bodies", BODIES.size());
     }
 
-    private static void registerPlanet(BasePlanet planet) {
-        PlanetEnum e = planet.getPlanetEnum();
+    private static void registerDimensions(BasePlanet planet) {
+        DimensionEnum e = planet.getPlanetEnum();
         int id = e.getId();
         String name = e.getName()
             .toLowerCase();

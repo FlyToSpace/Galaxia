@@ -11,15 +11,29 @@ import com.gtnewhorizons.galaxia.dimension.WorldProviderBuilder;
 import com.gtnewhorizons.galaxia.worldgen.TerrainConfiguration;
 import com.gtnewhorizons.galaxia.worldgen.TerrainPreset;
 
+/**
+ * The class holding all data related to the dimension Hemateria
+ */
 public class Hemateria extends BasePlanet {
 
     public static final DimensionEnum ENUM = DimensionEnum.HEMATERIA;
 
+    /**
+     * Getter for dimension Enum
+     *
+     * @return Dimension Enum
+     */
     @Override
     public DimensionEnum getPlanetEnum() {
         return ENUM;
     }
 
+    /**
+     * The configuration of the DimensionBuilder to configure the dimension
+     *
+     * @param builder The dimension builder to chain on
+     * @return The dimension Builder with all properties assigned
+     */
     @Override
     protected DimensionBuilder customizeDimension(DimensionBuilder builder) {
         return builder.mass(0.1)
@@ -33,6 +47,11 @@ public class Hemateria extends BasePlanet {
                     .pressure(1));
     }
 
+    /**
+     * Configures the world provider to add the correct biomes and settings
+     *
+     * @param builder The world provider builder being configured
+     */
     @Override
     protected void configureProvider(WorldProviderBuilder builder) {
         builder.sky(true)

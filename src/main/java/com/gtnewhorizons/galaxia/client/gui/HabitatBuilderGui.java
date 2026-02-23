@@ -23,6 +23,7 @@ import com.gtnewhorizons.galaxia.modules.ModuleType;
 import com.gtnewhorizons.galaxia.modules.ModuleTypes;
 import com.gtnewhorizons.galaxia.utility.Colors;
 
+// TODO: JAVADOC
 public class HabitatBuilderGui {
 
     private final GuiData guiData;

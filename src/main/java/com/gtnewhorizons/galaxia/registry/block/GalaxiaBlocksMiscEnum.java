@@ -1,9 +1,11 @@
 package com.gtnewhorizons.galaxia.registry.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemBlock;
 
 import com.gtnewhorizons.galaxia.core.Galaxia;
 import com.gtnewhorizons.galaxia.registry.block.base.BlockConfigurable;
+import com.gtnewhorizons.galaxia.registry.block.base.BlockFumarole;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -23,14 +25,21 @@ public enum GalaxiaBlocksMiscEnum {
     RUSTY_SCAFFOLDING(new BlockConfigurable("rusty_scaffolding")
         .opaque()),
     RUSTY_PANEL(new BlockConfigurable("rusty_panel")),
-
+    FUMAROLE(new BlockFumarole()),
     ;
     //spotless:on
 
     private final Block theBlock;
+    private final Class<? extends ItemBlock> itemClass;
 
     GalaxiaBlocksMiscEnum(Block block) {
         this.theBlock = block;
+        this.itemClass = null;
+    }
+
+    GalaxiaBlocksMiscEnum(Block block, Class<? extends ItemBlock> item) {
+        this.theBlock = block;
+        this.itemClass = item;
     }
 
     public Block get() {
@@ -39,11 +48,20 @@ public enum GalaxiaBlocksMiscEnum {
 
     public static void registerBlocksMisc() {
         for (GalaxiaBlocksMiscEnum block : values()) {
-            GameRegistry.registerBlock(
-                block.get(),
-                block.get()
-                    .getUnlocalizedName());
-            block.theBlock.setCreativeTab(Galaxia.creativeTab);
+            if (block.itemClass == null) {
+                GameRegistry.registerBlock(
+                    block.get(),
+                    block.get()
+                        .getUnlocalizedName());
+                block.theBlock.setCreativeTab(Galaxia.creativeTab);
+            } else {
+                GameRegistry.registerBlock(
+                    block.get(),
+                    block.itemClass,
+                    block.get()
+                        .getUnlocalizedName());
+                block.theBlock.setCreativeTab(Galaxia.creativeTab);
+            }
         }
     }
 }

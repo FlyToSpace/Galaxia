@@ -62,6 +62,7 @@ tile.panspira_snow.name=Panspira Snow
 tile.panspira_stone.name=Panspira Stone
 tile.panspira_soil.name=Panspira Soil
 tile.panspira_magma.name=Panspira Magma
+tile.fumarole.name=Fumarole
 
 # Blocks Tenebrae
 tile.tenebrae_basalt.name=Tenebrae Basalt

@@ -12,6 +12,7 @@ import com.gtnewhorizons.galaxia.registry.block.base.BlockSpaceAir;
 import com.gtnewhorizons.galaxia.registry.block.base.BlockSpaceStation;
 import com.gtnewhorizons.galaxia.registry.block.base.BlockSpaceStationGlass;
 import com.gtnewhorizons.galaxia.registry.block.base.BlockVariant;
+import com.gtnewhorizons.galaxia.registry.block.tile.TileEntityFumarole;
 import com.gtnewhorizons.galaxia.registry.block.tile.TileNoduleController;
 import com.gtnewhorizons.galaxia.registry.dimension.DimensionEnum;
 import com.gtnewhorizons.galaxia.registry.items.GalaxiaItemList;
@@ -52,6 +53,7 @@ public enum GalaxiaBlocksEnum {
         GameRegistry.registerTileEntity(TileEntitySilo.class, "galaxia_silo_controller");
         GameRegistry.registerTileEntity(TileNoduleController.class, "galaxia_nodule_controller");
         GameRegistry.registerTileEntity(TileEntityModuleAssembler.class, "galaxia_module_assembler_controller");
+        GameRegistry.registerTileEntity(TileEntityFumarole.class, "galaxia_fumarole");
     }
 
     // spotless:off
@@ -134,8 +136,7 @@ public enum GalaxiaBlocksEnum {
             sandLike("rhyolite", 0.7F),
             sandLike("sulfuricRegolith", 0.7F),
             stoneLike("latite", 2),
-            stoneLike("brimstone", 2),
-            stoneLike("fumarole", 2));
+            stoneLike("brimstone", 2));
     }
     //spotless:on
 
